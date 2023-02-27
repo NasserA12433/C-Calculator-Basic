@@ -1,0 +1,34 @@
+//Name: Nasser Alnabulsi 
+//Project 1
+//Due: 2/10/23
+//Course: cs-2560-01=sp23
+//
+//Description:
+//Program to calculate the quadratic formula given 3 values, whole number or double
+//
+#include <iostream>
+#include <cmath>
+#include <iomanip>
+using namespace std;
+
+int main(){
+	double a,b,c,s_root;				//Establish the variables used for the quadratic formula 
+	cout<<"Quadratic equation solver by N.Alnabulsi" << endl; 	
+	cout<<"Enter the values for a b and c. "<< endl;		//Prompt to input the values we will recieve to do calculations 
+	cin>>a>>b>>c;					//Take all 3 inputs and establish each as a b and c respectively 
+	if (a==0){					//if statement to check if the value is 0, meaning the formual is linear
+		cout<<"Not a quadratic equation"<< endl;
+		return 0;
+	}
+		s_root= (b*b)-(4*a*c);			//calculate the value of the items in the square root 
+		if (s_root<0){				//If statement to check the discriminant value, if its less than 0 it is imaginary.
+			cout<<"Roots are imaginary"<<endl;	//The Discriminant (b^2- 4ac) is less than 0, meaning that its imaginary 
+			return 0; 			//Close the program
+		}					
+		double phold= sqrt(s_root);			//Calculate the square root of the b^2-4ac 	
+		cout<<setprecision(2)<<fixed;			//ensure the precision is listed as 2 decimals
+		cout<<"X1= " << static_cast<double>((-b) + phold)/(2*a)<< endl;	//Statement calculate the quadratic formula using a posative square root value
+		cout<<"X2= " << static_cast<double>((-b) - phold)/(2*a)<< endl; 	//Statement to calculate the value of the quadratic formula with a negative value 
+		return 0;					//return 0 to close the program 
+
+}
